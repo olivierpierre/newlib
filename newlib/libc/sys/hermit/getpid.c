@@ -37,7 +37,7 @@ int
 _DEFUN (getpid, (),
 	)
 {
-	return _getpid_r(_REENT);
+ 	return _getpid_r(_REENT);
 }
 
 int
