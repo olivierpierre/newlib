@@ -4,15 +4,17 @@ PROG=hello
 CFLAGS= -g
 LDFLAGS=
 PROXY=/opt/hermit/bin/proxy
+MEM=4G
+VEBOSE=1
 
 all: $(PROG)
 	$(CC) $(CFLAGS) $(SRC) -o $(PROG) $(LDFLAGS)
 
 test: all
-	HERMIT_ISLE=qemu HERMIT_KVM=0 $(PROXY) $(PROG)
+	HERMIT_MEM=$(MEM) HERMIT_VERBOSE=$(VERBOSE) HERMIT_ISLE=qemu HERMIT_KVM=0 $(PROXY) $(PROG)
 
 debug: all
-	HERMIT_ISLE=qemu HERMIT_KVM=0 HERMIT_DEBUG=1 $(PROXY) $(PROG)
+	HHERMIT_MEM=$(MEM) HERMIT_VERBOSE=$(VERBOSE) ERMIT_ISLE=qemu HERMIT_KVM=0 HERMIT_DEBUG=1 $(PROXY) $(PROG)
 
-clean:
-	rm -rf $(PROG) *.o	
+objdump:
+	objdump --disassemble $(PROG) /tmp/obj.x | vim -
