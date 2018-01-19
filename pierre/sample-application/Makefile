@@ -5,7 +5,7 @@ CFLAGS= -g
 LDFLAGS=
 PROXY=/opt/hermit/bin/proxy
 MEM=4G
-VEBOSE=1
+VERBOSE=1
 
 all: $(PROG)
 	$(CC) $(CFLAGS) $(SRC) -o $(PROG) $(LDFLAGS)
