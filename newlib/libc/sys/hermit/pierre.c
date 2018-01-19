@@ -10,6 +10,6 @@ int
 _DEFUN (pierre, (x),
 	int x)
 {
- 	return sys_pierre;
+ 	return sys_pierre(x);
 }
 
